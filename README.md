@@ -9,3 +9,7 @@
 ## creating_signals
 
 Данная папка про создание сигналов
+
+## creating_threads_with_pthreads
+
+Данная папка про создание потоков с помощью pthreads
