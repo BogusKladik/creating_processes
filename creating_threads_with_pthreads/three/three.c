@@ -8,6 +8,8 @@ long sum = 0;
 pthread_mutex_t sumlock;
 
 void* threadBody (void* thread_data){
+	printf("Hello, I'm process №%d\n", syscall(SYS_gettid));
+
 	for (long i = 0; i < 1000000 ; i++){
 		pthread_mutex_lock(&sumlock);
 		sum++;
