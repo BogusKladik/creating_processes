@@ -17,13 +17,9 @@ int main(int argc, char* argv[]){
 	int number_threads = atoi(argv[1]);
 	pthread_t threads[number_threads];
 
-	for (int i = 0; i < number_threads; i++){
-		pthread_create(&threads[i], NULL, threadBody, thread_data);	
-	}
+	for (int i = 0; i < number_threads; i++) pthread_create(&threads[i], NULL, threadBody, thread_data);
 
-	for (int i = 0; i < number_threads; i++){
-		pthread_join(threads[i], NULL);
-	}
+	for (int i = 0; i < number_threads; i++) pthread_join(threads[i], NULL);
 
 	printf("Sum after %d threads is %ld\n", number_threads, sum);
 

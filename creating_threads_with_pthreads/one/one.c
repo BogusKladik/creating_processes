@@ -12,12 +12,12 @@ void* thread_body (void* thread_data){
 
 int main(int argc, char* argv[]){
 	void* thread_data = NULL;
-	pthread_t thread;
+	int number_threads = atoi(argv[1]);
+	pthread_t thread[number_threads];
 
-	for (int i = 0; i < atoi(argv[1]); i++){
-		pthread_create(&thread, NULL, thread_body, thread_data);
-	        pthread_join(thread, NULL);	
-	}
+	for (int i = 0; i < number_threads; i++) pthread_create(&thread[i], NULL, thread_body, thread_data);
+
+	for (int i = 0; i < number_threads; i++) pthread_join(thread[i], NULL);
 	
 	pthread_exit(0);
 	return 0;
