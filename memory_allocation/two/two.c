@@ -17,9 +17,14 @@ int main(int argc, char* argv[]) {
 	signal(SIGINT, handler);
 
 	int *p;
+	int n = 0;
 	while(1) {
 		int inc = number_of_megabytes* 1024 * 1024 * sizeof(char);
 		p=(int*) malloc(inc);
-        	if (!p) break;
+		n += sizeof(p);
+        	if (!p) {
+			fprintf(stdout, "allocated memory in bytes: %d\n", n);
+			break;
+		}
     }
 }
